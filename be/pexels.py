@@ -7,7 +7,7 @@ load_dotenv()
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY")
 API_KEY = PEXELS_API_KEY
 
-def get_pexels_image(query):
+def call_pexels_api(query):
     url = f'https://api.pexels.com/v1/search?query={query}&per_page=5'
     headers = {'Authorization': API_KEY}
     response = requests.get(url, headers=headers)
@@ -27,6 +27,12 @@ def get_pexels_image(query):
     else:
         return f"Error: {response.status_code}"
 
-# Example usage
-image_url = get_pexels_image("Burger")
-print(f"Top image URL: {image_url}")
+# Modify the query below whereas needed
+def get_pexels_images(query):
+    modified_query = "food " + query
+    return call_pexels_api(modified_query)
+
+
+if __name__ == "__main__":
+    # Example usage
+    print(get_pexels_images("Fries"))

@@ -1,0 +1,26 @@
+[
+    {
+      "name": "Sake Nigirizushi",
+      "description": "SALMON",
+      "price": "$12.50",
+      "image": "path_to_sake_image"
+    },
+    {
+      "name": "Ebi Nigirizushi",
+      "description": "SHRIMP",
+      "price": "$10.00",
+      "image": "path_to_ebi_image"
+    },
+    {
+      "name": "Tamago Nigiri",
+      "description": "OMELETTE",
+      "price": "$9.30",
+      "image": "path_to_tamago_image"
+    },
+    {
+      "name": "Unagi Nigirizushi",
+      "description": "JAPANESE EEL",
+      "price": "$10.90",
+      "image": "path_to_unagi_image"
+    }
+  ]

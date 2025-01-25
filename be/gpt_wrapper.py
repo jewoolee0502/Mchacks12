@@ -1,40 +1,58 @@
+import base64
 import openai
 import os
-from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
-# Load API key from .env file
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# Initialize Flask app
-app = Flask(__name__)
+# Set up the OpenAI API key
+openai.api_key = OPENAI_API_KEY
 
-# Function to get a response from GPT
-def get_gpt_response(prompt, model="gpt-4", max_tokens=200):
-    openai.api_key = OPENAI_API_KEY
-    try:
-        response = openai.ChatCompletion.create(
-            model=model,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens
-        )
-        return response["choices"][0]["message"]["content"]
-    except Exception as e:
-        return str(e)
+# Function to encode the image
+def encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
 
-# Define an API endpoint
-@app.route("/chat", methods=["POST"])
-def chat():
-    data = request.json
-    prompt = data.get("prompt", "")
-    
-    if not prompt:
-        return jsonify({"error": "Prompt is required"}), 400
+def test_endpoint():
+    # Path to your image
+    image_path = "image_menu.jpeg"
 
-    response = get_gpt_response(prompt)
-    return jsonify({"response": response})
+    # Getting the Base64 string
+    base64_image = encode_image(image_path)
+
+    # Prompt to extract information
+    prompt = (
+        "translate the image to english and extract the menu items and their corresponding prices from this image. "
+        "Return the results in a structured JSON format, where each menu item has a 'name' field "
+        "and a 'price' field. Exclude any unnecessary text or decorations."
+    )
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": prompt,
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"},
+                    },
+                ],
+            }
+        ],
+    )
+
+    return response.choices[0]['message']['content']
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    response = test_endpoint()
 
+    # Print the response
+    if response:
+        print("Extracted Menu Items:")
+        print(response)

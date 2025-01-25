@@ -16,7 +16,7 @@ def encode_image(image_path):
 
 def test_endpoint():
     # Path to your image
-    image_path = "image_menu.jpeg"
+    image_path = "/Users/jewoolee/Desktop/McGill/Hackathon/McHacks12/Mchacks12/be/image_menu.jpeg"
 
     # Getting the Base64 string
     base64_image = encode_image(image_path)

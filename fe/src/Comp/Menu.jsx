@@ -1,6 +1,6 @@
 import React from "react";
-import menuData from "../data/menu.json"; // Adjust the path as per your folder structure
-
+import menuData from "../data/menu.json";
+  
 const Menu = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-400 to-orange-500 flex items-center justify-center">
@@ -42,7 +42,7 @@ const Menu = () => {
                   <p className="text-gray-500 text-sm">{item.description}</p>
                 </div>
               </div>
-              <p className="text-lg font-semibold">{item.price}</p>
+              <p className="text-lg font-semibold">${item.price.toFixed(2)}</p>
             </div>
           ))}
         </div>

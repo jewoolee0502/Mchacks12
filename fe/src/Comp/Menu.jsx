@@ -1,52 +1,90 @@
-import React from "react";
-import menuData from "../data/menu.json";
-  
-const Menu = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-400 to-orange-500 flex items-center justify-center">
-      <div className="w-3/4 bg-white rounded-lg shadow-lg">
-        {/* Top Navigation */}
-        <div className="bg-gray-800 text-yellow-400 py-4 px-6 flex justify-around rounded-t-lg">
-          <div className="text-center">
-            <div className="mb-1">🍣</div>
-            <p className="uppercase text-sm">Roll</p>
-          </div>
-          <div className="text-center">
-            <div className="mb-1 border-b-2 border-yellow-400">🍣</div>
-            <p className="uppercase text-sm">Sushi</p>
-          </div>
-          <div className="text-center">
-            <div className="mb-1">🍜</div>
-            <p className="uppercase text-sm">Noodle</p>
-          </div>
-          <div className="text-center">
-            <div className="mb-1">🍶</div>
-            <p className="uppercase text-sm">Drinks</p>
-          </div>
-        </div>
-        {/* Menu List */}
-        <div className="p-6">
-          {menuData.map((item, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between mb-6 border-b pb-4"
-            >
-              <div className="flex items-center">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-16 h-16 rounded-full mr-4"
-                />
-                <div>
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <p className="text-gray-500 text-sm">{item.description}</p>
-                </div>
-              </div>
-              <p className="text-lg font-semibold">${item.price.toFixed(2)}</p>
-            </div>
-          ))}
-        </div>
+import React, { useState } from "react";
+
+const menuItems = [
+  {
+    name: "Ocean Deli Special Pizza Small",
+    description: "Hamburger, Sausage, Pepperoni, Red Onion, Peppers, Mushrooms",
+    price: 12.50,
+    imageUrl: "https://via.placeholder.com/400", // Replace with the actual pizza image URL
+    altText: "Ocean Deli Pizza"
+  },
+  // Add more items as needed
+];
+
+const MenuItem = ({ item, quantity, incrementQuantity, decrementQuantity }) => (
+  <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    {/* Image Section */}
+    <div className="relative">
+      <img
+        src={item.imageUrl}
+        alt={item.altText}
+        className="w-full h-64 object-cover"
+      />
+      <button className="absolute top-2 right-2 bg-white text-gray-700 rounded-full p-1 shadow-md hover:bg-gray-200">
+        ✕
+      </button>
+    </div>
+
+    {/* Content Section */}
+    <div className="p-4">
+      <h4 className="text-gray-500 text-sm">{item.altText}</h4>
+      <h2 className="text-2xl font-bold text-gray-800 mb-2">{item.name}</h2>
+      <p className="text-xl text-gray-700 mb-4">${item.price.toFixed(2)}</p>
+
+      {/* Tabs */}
+      <div className="flex justify-between border-b mb-4">
+        <button className="text-gray-700 font-medium py-2 border-b-2 border-black">
+          DETAILS
+        </button>
       </div>
+
+      {/* Details */}
+      <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+
+      {/* Extras */}
+      <div className="flex items-center justify-between mt-6">
+        {/* Quantity Selector */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={decrementQuantity}
+            className="w-8 h-8 bg-gray-200 text-gray-700 rounded flex items-center justify-center hover:bg-gray-300"
+          >
+            -
+          </button>
+          <span className="text-gray-800 text-lg">{quantity}</span>
+          <button
+            onClick={incrementQuantity}
+            className="w-8 h-8 bg-gray-200 text-gray-700 rounded flex items-center justify-center hover:bg-gray-300"
+          >
+            +
+          </button>
+        </div>
+
+        <button className="flex-1 ml-4 bg-green-500 text-white text-lg font-medium py-2 px-4 rounded-lg hover:bg-green-600">
+          Add to Order <span className="ml-2">${(item.price * quantity).toFixed(2)}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+const Menu = () => {
+  const [quantity, setQuantity] = useState(1);
+
+  const incrementQuantity = () => setQuantity((prev) => prev + 1);
+  const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
+
+  return (
+    <div>
+      {menuItems.map((item, index) => (
+        <MenuItem
+          key={index}
+          item={item}
+          quantity={quantity}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+        />
+      ))}
     </div>
   );
 };

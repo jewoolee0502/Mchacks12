@@ -1,26 +1,224 @@
 [
     {
-      "name": "Sake Nigirizushi",
-      "description": "SALMON",
-      "price": "$12.50",
-      "image": "path_to_sake_image"
+        "name": "Bruschetta",
+        "description": "Grilled bread topped with a mixture of tomatoes, garlic, and basil.",
+        "type": "appetizer",
+        "price": 6.50
     },
     {
-      "name": "Ebi Nigirizushi",
-      "description": "SHRIMP",
-      "price": "$10.00",
-      "image": "path_to_ebi_image"
+        "name": "Stuffed Mushrooms",
+        "description": "Mushrooms filled with a savory blend of cheese, herbs, and breadcrumbs.",
+        "type": "appetizer",
+        "price": 7.00
     },
     {
-      "name": "Tamago Nigiri",
-      "description": "OMELETTE",
-      "price": "$9.30",
-      "image": "path_to_tamago_image"
+        "name": "Caprese Salad",
+        "description": "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
+        "type": "appetizer",
+        "price": 8.00
     },
     {
-      "name": "Unagi Nigirizushi",
-      "description": "JAPANESE EEL",
-      "price": "$10.90",
-      "image": "path_to_unagi_image"
+        "name": "Garlic Bread",
+        "description": "Toasted bread with garlic butter and herbs.",
+        "type": "appetizer",
+        "price": 5.00
+    },
+    {
+        "name": "Shrimp Cocktail",
+        "description": "Chilled shrimp served with a tangy cocktail sauce.",
+        "type": "appetizer",
+        "price": 9.00
+    },
+    {
+        "name": "Deviled Eggs",
+        "description": "Classic deviled eggs with a hint of paprika.",
+        "type": "appetizer",
+        "price": 4.50
+    },
+    {
+        "name": "Cheese Platter",
+        "description": "Assorted cheeses served with crackers and fruit.",
+        "type": "appetizer",
+        "price": 12.00
+    },
+    {
+        "name": "Fried Calamari",
+        "description": "Crispy fried calamari served with marinara sauce.",
+        "type": "appetizer",
+        "price": 10.00
+    },
+    {
+        "name": "Spinach Artichoke Dip",
+        "description": "Creamy dip served with tortilla chips.",
+        "type": "appetizer",
+        "price": 8.50
+    },
+    {
+        "name": "Grilled Salmon",
+        "description": "Fresh salmon fillet grilled to perfection, served with a side of vegetables.",
+        "type": "main dish",
+        "price": 18.00
+    },
+    {
+        "name": "Ribeye Steak",
+        "description": "Juicy ribeye steak cooked to your liking, served with mashed potatoes.",
+        "type": "main dish",
+        "price": 25.00
+    },
+    {
+        "name": "Chicken Alfredo",
+        "description": "Grilled chicken breast served over fettuccine pasta with Alfredo sauce.",
+        "type": "main dish",
+        "price": 16.00
+    },
+    {
+        "name": "Vegetable Stir Fry",
+        "description": "Mixed vegetables stir-fried with soy sauce and served over rice.",
+        "type": "main dish",
+        "price": 14.00
+    },
+    {
+        "name": "Beef Tacos",
+        "description": "Seasoned beef served in soft tortillas with toppings.",
+        "type": "main dish",
+        "price": 12.00
+    },
+    {
+        "name": "Spaghetti Bolognese",
+        "description": "Classic spaghetti with a rich meat sauce.",
+        "type": "main dish",
+        "price": 15.00
+    },
+    {
+        "name": "Lamb Chops",
+        "description": "Grilled lamb chops served with mint sauce.",
+        "type": "main dish",
+        "price": 28.00
+    },
+    {
+        "name": "Seafood Paella",
+        "description": "Traditional Spanish rice dish with seafood.",
+        "type": "main dish",
+        "price": 22.00
+    },
+    {
+        "name": "Eggplant Parmesan",
+        "description": "Breaded eggplant slices baked with marinara sauce and cheese.",
+        "type": "main dish",
+        "price": 17.00
+    },
+    {
+        "name": "Margarita",
+        "description": "A refreshing cocktail made with tequila, lime juice, and orange liqueur.",
+        "type": "drink",
+        "price": 8.00
+    },
+    {
+        "name": "Mojito",
+        "description": "A classic cocktail with rum, mint leaves, lime juice, sugar, and soda water.",
+        "type": "drink",
+        "price": 7.50
+    },
+    {
+        "name": "Old Fashioned",
+        "description": "A traditional cocktail with bourbon, bitters, sugar, and orange peel.",
+        "type": "drink",
+        "price": 9.00
+    },
+    {
+        "name": "Pina Colada",
+        "description": "A tropical cocktail with rum, coconut cream, and pineapple juice.",
+        "type": "drink",
+        "price": 8.50
+    },
+    {
+        "name": "Cosmopolitan",
+        "description": "A stylish cocktail with vodka, triple sec, cranberry juice, and lime.",
+        "type": "drink",
+        "price": 8.00
+    },
+    {
+        "name": "Whiskey Sour",
+        "description": "A classic cocktail with whiskey, lemon juice, and sugar.",
+        "type": "drink",
+        "price": 7.50
+    },
+    {
+        "name": "Gin and Tonic",
+        "description": "A refreshing mix of gin and tonic water with a lime wedge.",
+        "type": "drink",
+        "price": 7.00
+    },
+    {
+        "name": "Bloody Mary",
+        "description": "A savory cocktail with vodka, tomato juice, and spices.",
+        "type": "drink",
+        "price": 8.00
+    },
+    {
+        "name": "Espresso Martini",
+        "description": "A coffee-flavored cocktail with vodka, espresso, and coffee liqueur.",
+        "type": "drink",
+        "price": 9.00
+    },
+    {
+        "name": "Chocolate Lava Cake",
+        "description": "Warm chocolate cake with a gooey molten center, served with vanilla ice cream.",
+        "type": "dessert",
+        "price": 7.00
+    },
+    {
+        "name": "Tiramisu",
+        "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.",
+        "type": "dessert",
+        "price": 8.50
+    },
+    {
+        "name": "Cheesecake",
+        "description": "Creamy cheesecake with a graham cracker crust.",
+        "type": "dessert",
+        "price": 7.50
+    },
+    {
+        "name": "Apple Pie",
+        "description": "Traditional apple pie with a flaky crust.",
+        "type": "dessert",
+        "price": 6.50
+    },
+    {
+        "name": "Creme Brulee",
+        "description": "Rich custard topped with a layer of caramelized sugar.",
+        "type": "dessert",
+        "price": 8.00
+    },
+    {
+        "name": "Panna Cotta",
+        "description": "Italian dessert made with sweetened cream and gelatin.",
+        "type": "dessert",
+        "price": 7.00
+    },
+    {
+        "name": "Brownie Sundae",
+        "description": "Warm brownie topped with ice cream and chocolate sauce.",
+        "type": "dessert",
+        "price": 7.50
+    },
+    {
+        "name": "Lemon Tart",
+        "description": "Tangy lemon tart with a buttery crust.",
+        "type": "dessert",
+        "price": 6.50
+    },
+    {
+        "name": "Banoffee Pie",
+        "description": "Banana and toffee pie with a biscuit base.",
+        "type": "dessert",
+        "price": 8.00
+    },
+    {
+        "name": "Pavlova",
+        "description": "Meringue dessert topped with whipped cream and fresh fruit.",
+        "type": "dessert",
+        "price": 8.50
     }
-  ]
+]

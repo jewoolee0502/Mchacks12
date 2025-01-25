@@ -24,8 +24,7 @@ def test_endpoint():
     # Prompt to extract information
     prompt = (
         "translate the image to english and extract the menu items and their corresponding prices from this image. "
-        "Return the results in a structured JSON format, where each menu item has a 'name' field "
-        "and a 'price' field. Exclude any unnecessary text or decorations."
+        "Return the results in a structured JSON format, where each menu item has a 'name' field , a 'description' field, a 'type' field, and a 'price' field. Exclude any unnecessary text or decorations."
     )
 
     response = openai.ChatCompletion.create(

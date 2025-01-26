@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import menuData from "../data/menu.json";
-
+import Bot from "./bot";
 const App = () => {
   const [menu, setMenu] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -8,6 +8,7 @@ const App = () => {
   const [quantity, setQuantity] = useState(1);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isBotOpen, setIsBotOpen] = useState(false);
 
   useEffect(() => {
     fetch("/data/menu.json")
@@ -39,6 +40,10 @@ const App = () => {
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const toggleBot = () => {
+    setIsBotOpen(!isBotOpen);
   };
 
   return (
@@ -178,6 +183,23 @@ const App = () => {
           )}
         </div>
       </div>
+
+      {/* Floating Bot Button */}
+      <button
+        className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600"
+        onClick={toggleBot}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm6 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-6 4c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z" />
+        </svg>
+      </button>
+
+      {/* Bot Popup */}
+      {isBotOpen && (
+        <div className="fixed bottom-16 right-4 bg-white p-4 rounded-lg shadow-lg">
+          <Bot />
+        </div>
+      )}
     </div>
   );
 };

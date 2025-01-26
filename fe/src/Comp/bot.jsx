@@ -17,7 +17,7 @@ const API_KEY = "sk-proj-yskWbwmnUMxfMTPeX78DToh5tMKa4JvVaDtX5Ll_fbwxZMYekL0zEy4
 const Bot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm a menu AI! Ask me anything!",
+      message: "Hello, I'm your menu Specialist! You can ask me what you want to eat and I can help you find the best options based on your preferences!",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -89,8 +89,7 @@ const Bot = () => {
   }
 
   return (
-    <div className="App">
-      <div className="relative h-[800px] w-[700px]">
+    <div className="App w-96 h-96">
         <MainContainer>
           <ChatContainer>       
             <MessageList 
@@ -100,19 +99,20 @@ const Bot = () => {
               {messages.map((message, i) => {
                 console.log(message)
                 return (
-                  <Message 
-                    key={i} 
-                    model={message} 
-                    className={message.sender === "user" ? "text-left" : "text-right"} 
-                  />
+                  <div key={i} className={`p-2 my-2 ${message.sender === "ChatGPT" ? "text-left bg-blue-100 rounded-l-lg items-start" : "text-right bg-green-100 rounded-r-lg items-end"}`}>
+                    <div>{message.message}</div>
+                  </div>
                 );
               })}
             </MessageList>
-            <MessageInput placeholder="Send a Message" onSend={handleSendRequest} />        
+            <MessageInput 
+              placeholder="Send a Message" 
+              onSend={handleSendRequest} 
+              className="mt-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />        
           </ChatContainer>
         </MainContainer>
       </div>
-    </div>
   );
 }
 

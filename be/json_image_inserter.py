@@ -1,5 +1,5 @@
 import json
-from image_searcher import get_pexels_images
+from utils.image_searcher import get_pexels_images
 
 def image_inserter(file_name, modified_file_name):
     # Load JSON file
@@ -18,4 +18,4 @@ def image_inserter(file_name, modified_file_name):
 
 if __name__ == "__main__":
     # Example usage
-    image_inserter("image_menu.json", "menu_with_images.json")
+    image_inserter("./image/menu.json", "./image/menu_with_images.json")

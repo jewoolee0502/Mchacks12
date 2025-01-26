@@ -1,4 +1,4 @@
-from gpt_wrapper import gpt_json
+from utils.gpt_wrapper import gpt_json
 
 def trim_to_braces(input_string):
     # Find the index of the first '{' and the last '}'
@@ -23,5 +23,5 @@ def save_json_to_file(image_path, file_name):
         file.write(string_data)
 
 if __name__ == "__main__":
-   image_path = 'image_menu.jpg'
-   save_json_to_file(image_path, "image_menu.json")
+   image_path = './image/menu.jpg'
+   save_json_to_file(image_path, "./image/menu.json")

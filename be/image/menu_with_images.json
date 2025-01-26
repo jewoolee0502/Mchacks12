@@ -5,15 +5,15 @@
             "Original Title": "Salade de ch\u00e8vre chaud",
             "Dish Title": "Warm Goat Cheese Salad",
             "Price": 11,
-            "Description": "Salad with warm goat cheese, nuts, and balsamic vinaigrette.",
+            "Description": "Salad with warm goat cheese, walnuts, and balsamic vinaigrette.",
             "Ingredients": [
                 "goat cheese",
-                "nuts",
+                "walnuts",
                 "balsamic vinaigrette",
                 "mixed greens"
             ],
             "Category": [
-                "Appetizers"
+                "Starters"
             ],
             "Allergy tags": [
                 "Nuts",
@@ -37,10 +37,10 @@
                 "onions",
                 "anchovies",
                 "olives",
-                "tart crust"
+                "pastry crust"
             ],
             "Category": [
-                "Appetizers"
+                "Starters"
             ],
             "Allergy tags": [
                 "Gluten",
@@ -66,11 +66,11 @@
                 "onion confit"
             ],
             "Category": [
-                "Appetizers"
+                "Starters"
             ],
             "Allergy tags": [
                 "Gluten",
-                "Liver"
+                "Dairy"
             ],
             "Image": [
                 "https://www.pexels.com/photo/brown-bread-with-white-cream-and-green-vegetable-on-white-ceramic-plate-7214484/",
@@ -87,9 +87,10 @@
             "Price": 20,
             "Description": "Proven\u00e7al fish soup served with grilled bread and rouille.",
             "Ingredients": [
-                "fish broth",
-                "various fish",
-                "grilled bread",
+                "fish",
+                "shellfish",
+                "vegetables",
+                "saffron",
                 "rouille"
             ],
             "Category": [
@@ -97,7 +98,7 @@
             ],
             "Allergy tags": [
                 "Fish",
-                "Gluten"
+                "Shellfish"
             ],
             "Image": [
                 "https://www.pexels.com/photo/rustic-seafood-soup-with-herb-bread-29160626/",
@@ -112,7 +113,7 @@
             "Original Title": "Cassoulet",
             "Dish Title": "Cassoulet",
             "Price": 16,
-            "Description": "Southwestern dish made with beans, sausage, duck confit, and pork.",
+            "Description": "Southwest dish with beans, sausage, duck confit, and pork.",
             "Ingredients": [
                 "beans",
                 "sausage",
@@ -123,7 +124,7 @@
                 "Main Courses"
             ],
             "Allergy tags": [
-                "Gluten"
+                "None"
             ],
             "Image": [
                 "https://www.pexels.com/photo/delicious-chocolate-croissant-on-rustic-plate-30391094/",
@@ -140,7 +141,7 @@
             "Price": 18,
             "Description": "Grilled pork fillet served with a pepper sauce and potatoes.",
             "Ingredients": [
-                "pork fillet",
+                "pork",
                 "pepper sauce",
                 "potatoes"
             ],
@@ -163,11 +164,11 @@
             "Original Title": "Confit de canard",
             "Dish Title": "Duck Confit",
             "Price": 16,
-            "Description": "Confit duck served with saut\u00e9ed potatoes and green salad.",
+            "Description": "Duck legs served with saut\u00e9ed potatoes and mixed salad.",
             "Ingredients": [
-                "duck",
+                "duck legs",
                 "potatoes",
-                "green salad"
+                "mixed salad"
             ],
             "Category": [
                 "Main Courses"
@@ -188,7 +189,7 @@
             "Original Title": "Profiteroles",
             "Dish Title": "Profiteroles",
             "Price": 7,
-            "Description": "Choux pastry filled with vanilla ice cream, drizzled with hot chocolate sauce.",
+            "Description": "Choux pastry filled with vanilla ice cream and covered with hot chocolate sauce.",
             "Ingredients": [
                 "choux pastry",
                 "vanilla ice cream",
@@ -264,12 +265,12 @@
             "Original Title": "Vin rouge",
             "Dish Title": "Red Wine",
             "Price": 5,
-            "Description": "Selection of wines from different French regions.",
+            "Description": "Selection of French wines from different regions.",
             "Ingredients": [
-                "various red wines"
+                "red wine"
             ],
             "Category": [
-                "Drinks"
+                "Beverages"
             ],
             "Allergy tags": [
                 "None"
@@ -287,13 +288,13 @@
             "Original Title": "Kir",
             "Dish Title": "Kir",
             "Price": 6,
-            "Description": "Ap\u00e9ritif made with cr\u00e8me de cassis and white wine.",
+            "Description": "Aperitif made with cr\u00e8me de cassis and white wine.",
             "Ingredients": [
                 "cr\u00e8me de cassis",
                 "white wine"
             ],
             "Category": [
-                "Drinks"
+                "Beverages"
             ],
             "Allergy tags": [
                 "None"
@@ -311,12 +312,12 @@
             "Original Title": "Caf\u00e9",
             "Dish Title": "Coffee",
             "Price": 2,
-            "Description": "Espresso or long coffee.",
+            "Description": "Espresso or lungo coffee.",
             "Ingredients": [
                 "coffee"
             ],
             "Category": [
-                "Drinks"
+                "Beverages"
             ],
             "Allergy tags": [
                 "None"

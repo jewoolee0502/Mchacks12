@@ -206,7 +206,7 @@ const App = () => {
                     <span className="font-semibold px-2">${item.Price}</span>
                   <div className="mt-4 relative">
                     <img
-                      src={"https://images.pexels.com/photos/5605620/pexels-photo-5605620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+                      src={item["Image"][0]}
                       alt={item["Dish Title"]}
                       className="w-full h-48 object-cover rounded-lg"
                     />

@@ -37,7 +37,7 @@ def enhance_dish_search_query(dish_name):
 
     return response.choices[0]["message"]["content"].strip()
 
-def fetch_pexels_images(query, num_results=5):
+def get_pexels_images(query, num_results=5):
     """Fetch high-quality dish images from Pexels API."""
     url = f"https://api.pexels.com/v1/search?query={query}&per_page={num_results}"
     headers = {"Authorization": PEXELS_API_KEY}
@@ -55,7 +55,7 @@ def get_dish_image_urls(dish_name):
     """Enhance dish name using GPT-4 and fetch real image URLs from Pexels."""
     enhanced_query = enhance_dish_search_query(dish_name)
     image_urls = fetch_pexels_images(enhanced_query)
-
+    print(image_urls)
     return {
         "dish": dish_name,
         "enhanced_query": enhanced_query,

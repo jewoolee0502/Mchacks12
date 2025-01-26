@@ -5,7 +5,7 @@ const menuItems = [
     name: "Ocean Deli Special Pizza Small",
     description: "Hamburger, Sausage, Pepperoni, Red Onion, Peppers, Mushrooms",
     price: 12.50,
-    imageUrl: "https://via.placeholder.com/400", // Replace with the actual pizza image URL
+    imageUrl: "https://www.pexels.com/photo/white-ceramic-plate-on-table-5605620/", // Replace with the actual pizza image URL
     altText: "Ocean Deli Pizza"
   },
   // Add more items as needed

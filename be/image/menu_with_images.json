@@ -5,24 +5,26 @@
             "Original Title": "Salade de ch\u00e8vre chaud",
             "Dish Title": "Warm Goat Cheese Salad",
             "Price": 11,
-            "Description": "Warm goat cheese salad with nuts and balsamic vinaigrette.",
+            "Description": "Salad of warm goat cheese, nuts, and balsamic vinaigrette.",
             "Ingredients": [
                 "goat cheese",
                 "nuts",
-                "balsamic vinaigrette"
+                "balsamic vinaigrette",
+                "salad greens"
             ],
             "Category": [
                 "Appetizers"
             ],
             "Allergy tags": [
-                "Nuts"
+                "Nuts",
+                "Dairy"
             ],
             "Image": [
-                "https://www.pexels.com/photo/white-ceramic-plate-on-table-5605620/",
-                "https://www.pexels.com/photo/photo-of-people-holding-glasses-3758006/",
-                "https://www.pexels.com/photo/grandmother-standing-at-table-with-asian-grandchildren-5692274/",
-                "https://www.pexels.com/photo/top-view-of-tortilla-on-a-table-11312952/",
-                "https://www.pexels.com/photo/breakfast-with-tea-5378632/"
+                "https://images.pexels.com/photos/5605620/pexels-photo-5605620.jpeg",
+                "https://images.pexels.com/photos/3758006/pexels-photo-3758006.jpeg",
+                "https://images.pexels.com/photos/5692274/pexels-photo-5692274.jpeg",
+                "https://images.pexels.com/photos/11312952/pexels-photo-11312952.jpeg",
+                "https://images.pexels.com/photos/16052392/pexels-photo-16052392.jpeg"
             ]
         },
         {
@@ -34,21 +36,22 @@
             "Ingredients": [
                 "onions",
                 "anchovies",
-                "olives"
+                "olives",
+                "tart crust"
             ],
             "Category": [
                 "Appetizers"
             ],
             "Allergy tags": [
                 "Gluten",
-                "Fish"
+                "Seafood"
             ],
             "Image": [
-                "https://www.pexels.com/photo/cozy-dessert-with-chocolate-and-tea-29642313/",
-                "https://www.pexels.com/photo/closeup-photo-of-slice-of-orange-1435735/",
-                "https://www.pexels.com/photo/food-romantic-apple-flowers-9632879/",
-                "https://www.pexels.com/photo/sliced-lime-161573/",
-                "https://www.pexels.com/photo/cupcake-with-strawberry-toppings-461431/"
+                "https://images.pexels.com/photos/29642313/pexels-photo-29642313.jpeg",
+                "https://images.pexels.com/photos/29632029/pexels-photo-29632029.jpeg",
+                "https://images.pexels.com/photos/20228226/pexels-photo-20228226.jpeg",
+                "https://images.pexels.com/photos/30308901/pexels-photo-30308901.jpeg",
+                "https://images.pexels.com/photos/25947330/pexels-photo-25947330.jpeg"
             ]
         },
         {
@@ -56,22 +59,25 @@
             "Original Title": "Terrine de foie gras",
             "Dish Title": "Foie Gras Terrine",
             "Price": 8,
-            "Description": "Foie gras terrine served with toasted bread and onion confit.",
+            "Description": "Foie gras in terrine, served with grilled bread and onion confit.",
             "Ingredients": [
                 "foie gras",
-                "toasted bread",
+                "grilled bread",
                 "onion confit"
             ],
             "Category": [
                 "Appetizers"
             ],
-            "Allergy tags": [],
+            "Allergy tags": [
+                "Gluten",
+                "Dairy"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/brown-bread-with-white-cream-and-green-vegetable-on-white-ceramic-plate-7214484/",
-                "https://www.pexels.com/photo/le-comptoir-de-mathilde-store-signage-916446/",
-                "https://www.pexels.com/photo/bread-food-plate-salad-7214488/",
-                "https://www.pexels.com/photo/bread-food-plate-salad-7214483/",
-                "https://www.pexels.com/photo/tasty-burger-in-crunchy-bun-served-with-sliced-pate-in-restaurant-4586810/"
+                "https://images.pexels.com/photos/7214484/pexels-photo-7214484.jpeg",
+                "https://images.pexels.com/photos/916446/pexels-photo-916446.jpeg",
+                "https://images.pexels.com/photos/9391451/pexels-photo-9391451.jpeg",
+                "https://images.pexels.com/photos/7351022/pexels-photo-7351022.jpeg",
+                "https://images.pexels.com/photos/2409361/pexels-photo-2409361.jpeg"
             ]
         },
         {
@@ -79,9 +85,11 @@
             "Original Title": "Bouillabaisse",
             "Dish Title": "Bouillabaisse",
             "Price": 20,
-            "Description": "Proven\u00e7al fish soup served with grilled bread and rouille.",
+            "Description": "Proven\u00e7al fish soup, served with grilled bread and rouille.",
             "Ingredients": [
                 "fish",
+                "saffron",
+                "tomatoes",
                 "grilled bread",
                 "rouille"
             ],
@@ -89,15 +97,13 @@
                 "Main Courses"
             ],
             "Allergy tags": [
-                "Fish",
+                "Seafood",
                 "Gluten"
             ],
             "Image": [
-                "https://www.pexels.com/photo/rustic-seafood-soup-with-herb-bread-29160626/",
-                "https://www.pexels.com/photo/delicious-red-soup-on-table-17568746/",
-                "https://www.pexels.com/photo/delicious-chocolate-croissant-on-rustic-plate-30391094/",
-                "https://www.pexels.com/photo/chef-preparing-fresh-pasta-in-restaurant-kitchen-30338827/",
-                "https://www.pexels.com/photo/making-delicious-homemade-ravioli-pasta-30338833/"
+                "https://images.pexels.com/photos/17568746/pexels-photo-17568746.jpeg",
+                "https://images.pexels.com/photos/13485215/pexels-photo-13485215.jpeg",
+                "https://images.pexels.com/photos/29160626/pexels-photo-29160626.jpeg"
             ]
         },
         {
@@ -105,7 +111,7 @@
             "Original Title": "Cassoulet",
             "Dish Title": "Cassoulet",
             "Price": 16,
-            "Description": "Southwestern dish made with beans, sausage, duck, and pork.",
+            "Description": "Southwestern dish of beans, sausage, duck, and pork.",
             "Ingredients": [
                 "beans",
                 "sausage",
@@ -119,11 +125,7 @@
                 "Gluten"
             ],
             "Image": [
-                "https://www.pexels.com/photo/delicious-chocolate-croissant-on-rustic-plate-30391094/",
-                "https://www.pexels.com/photo/chef-preparing-fresh-pasta-in-restaurant-kitchen-30338827/",
-                "https://www.pexels.com/photo/making-delicious-homemade-ravioli-pasta-30338833/",
-                "https://www.pexels.com/photo/chef-preparing-fresh-handmade-pasta-in-kitchen-30338813/",
-                "https://www.pexels.com/photo/chef-slicing-dough-for-fresh-homemade-pasta-30338815/"
+                "No images found."
             ]
         },
         {
@@ -140,13 +142,15 @@
             "Category": [
                 "Main Courses"
             ],
-            "Allergy tags": [],
+            "Allergy tags": [
+                "None"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/photo-of-person-holding-knife-3296280/",
-                "https://www.pexels.com/photo/photo-of-sliced-salmon-3296276/",
-                "https://www.pexels.com/photo/close-up-photo-of-raw-meat-8477071/",
-                "https://www.pexels.com/photo/photo-of-person-holding-salmon-3296275/",
-                "https://www.pexels.com/photo/photo-of-person-slicing-salmon-3296277/"
+                "https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg",
+                "https://images.pexels.com/photos/341048/pexels-photo-341048.png",
+                "https://images.pexels.com/photos/13322847/pexels-photo-13322847.jpeg",
+                "https://images.pexels.com/photos/20147040/pexels-photo-20147040.jpeg",
+                "https://images.pexels.com/photos/3296280/pexels-photo-3296280.jpeg"
             ]
         },
         {
@@ -154,22 +158,24 @@
             "Original Title": "Confit de canard",
             "Dish Title": "Duck Confit",
             "Price": 16,
-            "Description": "Confit duck legs served with saut\u00e9ed potatoes and green salad.",
+            "Description": "Confited duck legs, served with saut\u00e9ed potatoes and green salad.",
             "Ingredients": [
                 "duck legs",
                 "potatoes",
-                "green salad"
+                "salad greens"
             ],
             "Category": [
                 "Main Courses"
             ],
-            "Allergy tags": [],
+            "Allergy tags": [
+                "None"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/meat-on-plate-17242599/",
-                "https://www.pexels.com/photo/turquoise-plates-with-a-goose-leg-and-pate-20581257/",
-                "https://www.pexels.com/photo/vibrant-duck-salad-with-feta-and-orange-slices-29160662/",
-                "https://www.pexels.com/photo/cooked-meat-on-white-ceramic-plate-3791089/",
-                "https://www.pexels.com/photo/slices-of-meat-with-green-asparagus-11213744/"
+                "https://images.pexels.com/photos/14459160/pexels-photo-14459160.jpeg",
+                "https://images.pexels.com/photos/9266842/pexels-photo-9266842.jpeg",
+                "https://images.pexels.com/photos/14537662/pexels-photo-14537662.jpeg",
+                "https://images.pexels.com/photos/16975183/pexels-photo-16975183.jpeg",
+                "https://images.pexels.com/photos/16975185/pexels-photo-16975185.jpeg"
             ]
         },
         {
@@ -177,9 +183,9 @@
             "Original Title": "Profiteroles",
             "Dish Title": "Profiteroles",
             "Price": 7,
-            "Description": "Puffs filled with vanilla ice cream, drizzled with chocolate sauce.",
+            "Description": "Choux filled with vanilla ice cream, drizzled with chocolate sauce.",
             "Ingredients": [
-                "puff pastry",
+                "choux pastry",
                 "vanilla ice cream",
                 "chocolate sauce"
             ],
@@ -191,11 +197,11 @@
                 "Dairy"
             ],
             "Image": [
-                "https://www.pexels.com/photo/person-pouring-chocolate-on-profiteroles-8774282/",
-                "https://www.pexels.com/photo/close-up-shot-of-profiteroles-13525004/",
-                "https://www.pexels.com/photo/close-up-shot-of-a-yummy-pastry-8738010/",
-                "https://www.pexels.com/photo/profiteroles-on-a-plate-15204435/",
-                "https://www.pexels.com/photo/close-up-of-profiteroles-with-cream-15204436/"
+                "https://images.pexels.com/photos/8774282/pexels-photo-8774282.jpeg",
+                "https://images.pexels.com/photos/12031396/pexels-photo-12031396.jpeg",
+                "https://images.pexels.com/photos/14800881/pexels-photo-14800881.jpeg",
+                "https://images.pexels.com/photos/18532489/pexels-photo-18532489.jpeg",
+                "https://images.pexels.com/photos/24778018/pexels-photo-24778018.jpeg"
             ]
         },
         {
@@ -217,11 +223,11 @@
                 "Dairy"
             ],
             "Image": [
-                "https://www.pexels.com/photo/plate-with-bitten-piece-of-cheesecake-4040770/",
-                "https://www.pexels.com/photo/red-and-white-cake-with-strawberry-on-top-9946048/",
-                "https://www.pexels.com/photo/variety-of-baked-and-dessert-foods-on-plates-1448721/",
-                "https://www.pexels.com/photo/view-from-above-on-pizzas-among-meals-10513332/",
-                "https://www.pexels.com/photo/tart-with-mascarpone-and-berries-10990660/"
+                "https://images.pexels.com/photos/8104732/pexels-photo-8104732.jpeg",
+                "https://images.pexels.com/photos/11581120/pexels-photo-11581120.jpeg",
+                "https://images.pexels.com/photos/8104735/pexels-photo-8104735.jpeg",
+                "https://images.pexels.com/photos/1266741/pexels-photo-1266741.jpeg",
+                "https://images.pexels.com/photos/1157835/pexels-photo-1157835.jpeg"
             ]
         },
         {
@@ -229,7 +235,7 @@
             "Original Title": "Mousse au chocolat",
             "Dish Title": "Chocolate Mousse",
             "Price": 6,
-            "Description": "Light dessert made with dark chocolate and whipped cream.",
+            "Description": "Light dessert made of dark chocolate and whipped cream.",
             "Ingredients": [
                 "dark chocolate",
                 "whipped cream"
@@ -241,11 +247,11 @@
                 "Dairy"
             ],
             "Image": [
-                "https://www.pexels.com/photo/photo-of-chocolate-cake-on-wooden-plate-4109998/",
-                "https://www.pexels.com/photo/slice-cake-1854652/",
-                "https://www.pexels.com/photo/close-up-photo-of-chocolate-mousse-3026810/",
-                "https://www.pexels.com/photo/two-mug-of-cafe-latte-3151778/",
-                "https://www.pexels.com/photo/two-white-and-blue-mugs-beside-drinking-glass-3151766/"
+                "https://images.pexels.com/photos/691168/pexels-photo-691168.jpeg",
+                "https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg",
+                "https://images.pexels.com/photos/691152/pexels-photo-691152.jpeg",
+                "https://images.pexels.com/photos/691147/pexels-photo-691147.jpeg",
+                "https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg"
             ]
         },
         {
@@ -253,18 +259,22 @@
             "Original Title": "Vin rouge",
             "Dish Title": "Red Wine",
             "Price": 5,
-            "Description": "Selection of wines from different French regions.",
-            "Ingredients": [],
-            "Category": [
-                "Drinks"
+            "Description": "Selection of French wines from different regions.",
+            "Ingredients": [
+                "red wine"
             ],
-            "Allergy tags": [],
+            "Category": [
+                "Beverages"
+            ],
+            "Allergy tags": [
+                "None"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/person-in-brown-coat-holding-clear-wine-glass-4691198/",
-                "https://www.pexels.com/photo/delicious-breakfast-with-different-dishes-on-table-6210916/",
-                "https://www.pexels.com/photo/couple-with-cupcake-celebrating-birthday-in-restaurant-5911188/",
-                "https://www.pexels.com/photo/glass-of-cherry-wine-on-decorated-table-6210913/",
-                "https://www.pexels.com/photo/served-wooden-table-with-plates-and-bottle-of-wine-6210761/"
+                "https://images.pexels.com/photos/391213/pexels-photo-391213.jpeg",
+                "https://images.pexels.com/photos/66636/pexels-photo-66636.jpeg",
+                "https://images.pexels.com/photos/1545529/pexels-photo-1545529.jpeg",
+                "https://images.pexels.com/photos/774455/pexels-photo-774455.jpeg",
+                "https://images.pexels.com/photos/2702805/pexels-photo-2702805.jpeg"
             ]
         },
         {
@@ -278,15 +288,17 @@
                 "white wine"
             ],
             "Category": [
-                "Drinks"
+                "Beverages"
             ],
-            "Allergy tags": [],
+            "Allergy tags": [
+                "None"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/delicious-chocolate-croissant-on-rustic-plate-30391094/",
-                "https://www.pexels.com/photo/making-delicious-homemade-ravioli-pasta-30338833/",
-                "https://www.pexels.com/photo/chef-preparing-fresh-handmade-pasta-in-kitchen-30338813/",
-                "https://www.pexels.com/photo/chef-preparing-fresh-pasta-in-restaurant-kitchen-30338827/",
-                "https://www.pexels.com/photo/chef-slicing-dough-for-fresh-homemade-pasta-30338815/"
+                "https://images.pexels.com/photos/28486074/pexels-photo-28486074.png",
+                "https://images.pexels.com/photos/28486072/pexels-photo-28486072.jpeg",
+                "https://images.pexels.com/photos/28987669/pexels-photo-28987669.jpeg",
+                "https://images.pexels.com/photos/12266864/pexels-photo-12266864.jpeg",
+                "https://images.pexels.com/photos/27706418/pexels-photo-27706418.jpeg"
             ]
         },
         {
@@ -295,17 +307,21 @@
             "Dish Title": "Coffee",
             "Price": 2,
             "Description": "Espresso or long coffee.",
-            "Ingredients": [],
-            "Category": [
-                "Drinks"
+            "Ingredients": [
+                "coffee"
             ],
-            "Allergy tags": [],
+            "Category": [
+                "Beverages"
+            ],
+            "Allergy tags": [
+                "None"
+            ],
             "Image": [
-                "https://www.pexels.com/photo/delicious-breakfast-bowl-with-coffee-and-tea-30384223/",
-                "https://www.pexels.com/photo/young-woman-enjoying-coffee-in-istanbul-cafe-30375013/",
-                "https://www.pexels.com/photo/heartfelt-tiramisu-on-rustic-wooden-table-30372664/",
-                "https://www.pexels.com/photo/delicious-tiramisu-swiss-roll-on-plate-30372662/",
-                "https://www.pexels.com/photo/burlap-sack-of-coffee-beans-spilling-on-tray-30361023/"
+                "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
+                "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg",
+                "https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg",
+                "https://images.pexels.com/photos/302896/pexels-photo-302896.jpeg",
+                "https://images.pexels.com/photos/1235706/pexels-photo-1235706.jpeg"
             ]
         }
     ]

@@ -99,7 +99,7 @@ const Bot = () => {
               {messages.map((message, i) => {
                 console.log(message)
                 return (
-                  <div key={i} className={`p-2 my-2 ${message.sender === "ChatGPT" ? "text-left bg-blue-100 rounded-l-lg items-start" : "text-right bg-green-100 rounded-r-lg items-end"}`}>
+                  <div key={i} className={`p-2 my-2 ${message.sender === "ChatGPT" ? "text-left bg-yellow-500 text-white font-serif rounded-l-lg items-start" : "text-white font-serif text-right bg-blue-400 rounded-r-lg items-end"}`}>
                     <div>{message.message}</div>
                   </div>
                 );
@@ -108,7 +108,7 @@ const Bot = () => {
             <MessageInput 
               placeholder="Send a Message" 
               onSend={handleSendRequest} 
-              className="mt-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="mt-4 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
             />        
           </ChatContainer>
         </MainContainer>

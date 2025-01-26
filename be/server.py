@@ -4,7 +4,8 @@
 from flask import Flask
 from flask_cors import CORS
 import datetime
-
+import json
+from flask import request, jsonify
 
 # Initializing flask app
 app = Flask(__name__)
@@ -38,6 +39,18 @@ def chat():
     return jsonify({"response": response})
 
 
+# Route for serving menu data
+@app.route('/menu', methods=['GET'])
+def get_menu():
+    try:
+        with open('./be/image/menu_with_images.json') as menu_file:
+            menu_data = json.load(menu_file)
+        return jsonify(menu_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 # Running app
+
 if __name__ == '__main__':
     app.run(debug=True)
+

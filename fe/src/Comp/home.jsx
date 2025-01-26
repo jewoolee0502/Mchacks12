@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Mosaic } from "react-loading-indicators";
+import Font, { Text } from 'react-font'
 
 const App = () => {
   const navigate = useNavigate();
@@ -15,11 +16,12 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundImage: "url('https://i.etsystatic.com/23444619/r/il/6e873d/2895136820/il_1588xN.2895136820_aayy.jpg')", backgroundSize: 'cover'}}>
+    <div className="min-h-screen bg-opacity-80" style={{ backgroundImage: "url('https://i.etsystatic.com/23444619/r/il/6e873d/2895136820/il_1588xN.2895136820_aayy.jpg')", backgroundSize: 'cover'}}>
         <div className="flex justify-center items-center h-screen">
             <div className="bg-white bg-opacity-70 p-20 rounded-3xl shadow-lg " >
-                <h1 className="text-6xl font-bold text-center mb-4 text-black font-serif">Menu Translator</h1>
-                <div className="bg-white p-8 rounded-lg shadow-lg">
+            <Text family='Monoton' style={{ fontSize: 55, margin: 0 }} onLoad={() => console.log('loaded Monoton')}>
+        Menu Translator :)
+      </Text>                <div className="bg-white p-8 rounded-lg shadow-lg">
                     {loading ? (
                         <Mosaic color={["#33CCCC", "#33CC36", "#B8CC33", "#FCCA00"]} size="medium" text="" textColor="" />
                     ) : (

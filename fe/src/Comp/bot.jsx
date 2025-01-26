@@ -17,7 +17,7 @@ const API_KEY = "sk-proj-yskWbwmnUMxfMTPeX78DToh5tMKa4JvVaDtX5Ll_fbwxZMYekL0zEy4
 const Bot = () => {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm your menu Specialist! You can ask me what you want to eat and I can help you find the best options based on your preferences!",
+      message: "Heyy! Im Meme, your menu specialist! You can ask me what you want to eat and I can help you find the best options based on your preferences!",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -67,7 +67,7 @@ const Bot = () => {
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",
       "messages": [
-        { role: "system", content: `You are a menu AI suggesting on user's preference, ask user about their allergies and dietary restrictions, and what do they normally want to eat, and based on that suggest a menu for them. Here is the menu: ${menuItems}` },
+        { role: "system", content: `You are a menu AI suggesting on user's preference, ask user about their allergies and dietary restrictions, and what do they normally want to eat, and based on that suggest a menu for them. And maybe suggest if a certain main dish goes well with a certain side dish and drink. Here is the menu: ${menuItems}` },
         ...apiMessages,
       ],
     };
@@ -94,7 +94,7 @@ const Bot = () => {
           <ChatContainer>       
             <MessageList 
               scrollBehavior="smooth" 
-              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+              typingIndicator={isTyping ? <TypingIndicator content="Meme is typing" /> : null}
             >
               {messages.map((message, i) => {
                 console.log(message)

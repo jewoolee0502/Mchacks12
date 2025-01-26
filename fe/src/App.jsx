@@ -4,6 +4,7 @@ import Menu from "./Comp/Menu";
 import Home from "./Comp/home";
 import MM from "./Comp/MM";
 import Bot from "./Comp/bot";
+import TextPressure from "./Comp/title";
 function App() {
     return (
         <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/MM" element={<MM />} />
                 <Route path="/bot" element={<Bot />} />
+                <Route path="/title" element={<TextPressure />} />
             </Routes>
         </BrowserRouter>
     );

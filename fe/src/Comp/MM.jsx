@@ -18,6 +18,8 @@ const App = () => {
   const [isBotOpen, setIsBotOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState("original");
   const [searchQuery, setSearchQuery] = useState("");
+  const [showCheckout, setShowCheckout] = useState(false); // New state for checkout
+  const [selectedAllergy, setSelectedAllergy] = useState(""); // New state for selected allergy
 
   const fetchMenuData = async () => {
       try {
@@ -70,12 +72,17 @@ const App = () => {
     setSearchQuery(e.target.value.toLowerCase());
   };
 
+  const handleAllergyChange = (e) => {
+    setSelectedAllergy(e.target.value);
+  };
+
   const filteredMenu = data.items?.filter((item) => {
     const matchesCategory =
       selectedCategory === "All" ||
       item.Category.join(', ').toLowerCase().includes(selectedCategory.toLowerCase());
     const matchesSearch = item["Dish Title"].toLowerCase().includes(searchQuery);
-    return matchesCategory && matchesSearch;
+    const matchesAllergy = selectedAllergy === "" || !item["Allergy tags"].includes(selectedAllergy);
+    return matchesCategory && matchesSearch && matchesAllergy;
   });
 
   const sortedMenu = filteredMenu?.sort((a, b) => {
@@ -87,6 +94,10 @@ const App = () => {
       return data.items.indexOf(a) - data.items.indexOf(b);
     }
   });
+
+  const handleCheckout = () => {
+    setShowCheckout(true);
+  };
 
   return (
     <div
@@ -101,13 +112,12 @@ const App = () => {
       <div className="bg-white bg-opacity-90 shadow-lg">
         <header className="flex justify-between bg-white bg-opacity-60 shadow p-4 items-center">
           <h1 className="text-2xl px-2 font-bold text-yellow-500">Memenu Lens</h1>
-                  {/* Floating Bot Button */}
-        <button
-          className="bg-gray-300 text-black p-4 rounded-md shadow-lg hover:bg-gray-400"
-          onClick={toggleCart}
-        >
-          <CgShoppingCart />
-        </button>
+          <button
+            className="bg-gray-300 text-black p-4 rounded-md shadow-lg hover:bg-gray-400"
+            onClick={toggleCart}
+          >
+            <CgShoppingCart />
+          </button>
         </header>
 
         {/* Menu Section */}
@@ -180,7 +190,7 @@ const App = () => {
             </button>
           </div>
 
-          {/* Search and Sort */}
+          {/* Search, Sort, and Allergy Filter */}
           <div className="flex bg-white bg-opacity-60 p-6 items-center gap-4">
             <input
               type="text"
@@ -199,6 +209,21 @@ const App = () => {
                 <option value="original">Featured</option>
                 <option value="priceLowToHigh">Price: Low to High</option>
                 <option value="priceHighToLow">Price: High to Low</option>
+              </select>
+            </div>
+            <div className="flex items-center bg-white rounded-lg px-2">
+              <label htmlFor="allergy-select" className="mr-2">Allergy</label>
+              <select
+                id="allergy-select"
+                value={selectedAllergy}
+                onChange={handleAllergyChange}
+                className="px-2 py-1 rounded-md border border-gray-300 focus:ring-yellow-500"
+              >
+                <option value="">None</option>
+                <option value="Gluten">Gluten</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Nuts">Nuts</option>
+              <option value="Seafood">Seafood</option>
               </select>
             </div>
           </div>
@@ -223,14 +248,6 @@ const App = () => {
                   </div>
                   <div className="text-xl text-gray-500">
                   </div>
-                  {/* <div className="mt-2 text-sm text-gray-500">
-                    <span>Ingredients</span>: <span className="font-semibold">{item.Ingredients.join(', ')}</span>
-                  </div>
-                  {item["Allergy tags"].length > 0 && (
-                    <div className="mt-2 text-sm text-gray-500">
-                      <span>Allergy Tags</span>: <span className="font-semibold">{item["Allergy tags"].join(', ')}</span>
-                    </div>
-                  )} */}
                 </div>
               </div>
             ))}
@@ -302,19 +319,37 @@ const App = () => {
                 <p className="text-gray-500">Your cart is empty.</p>
               </div>
             ) : (
-              cart.map((item, index) => (
-                <div key={index} className="mb-4 bg-white bg-opacity-80 rounded-lg p-2">
-                  <h3 className="text-lg font-semibold bg">{item["Dish Title"]}</h3>
-                  <p className="text-gray-500">
-                    ${item.Price.toFixed(2)} x {item.quantity}
-                  </p>
-                </div>
-              ))
+              <>
+                {cart.map((item, index) => (
+                  <div key={index} className="mb-4 bg-white bg-opacity-80 rounded-lg p-2">
+                    <h3 className="text-lg font-semibold bg">{item["Dish Title"]}</h3>
+                    <p className="text-gray-500">
+                      ${item.Price.toFixed(2)} x {item.quantity}
+                    </p>
+                  </div>
+                ))}
+                <button
+                  className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+                  onClick={handleCheckout}
+                >
+                  Checkout
+                </button>
+                {showCheckout && (
+                  <div className="mt-4 bg-white p-4 rounded-lg shadow-lg">
+                    <h3 className="text-xl font-bold">Checkout Details</h3>
+                    {cart.map((item, index) => (
+                      <div key={index} className="flex justify-between">
+                        <span>{item["Original Title"]}</span>
+                        <span>${(item.Price * item.quantity).toFixed(2)}</span>
+                      </div>
+                    ))}
+                    <h4 className="font-semibold mt-2">Total: ${cart.reduce((total, item) => total + (item.Price * item.quantity), 0).toFixed(2)}</h4>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
-        
-
 
         {/* Floating Bot Button */}
         <button

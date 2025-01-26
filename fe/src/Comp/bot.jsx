@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import menuData from '../data/menu.json'; // Import menu data
+// Removed menuData import
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {
@@ -12,7 +12,7 @@ import {
 } from '@chatscope/chat-ui-kit-react';
 
 // Use a hardcoded API key for demonstration purposes
-const API_KEY = "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";
+const API_KEY = "Hello World";
 
 const Bot = () => {
   const [messages, setMessages] = useState([
@@ -61,8 +61,22 @@ const Bot = () => {
       return { role, content: messageObject.message };
     });
 
-    // Convert menu data to a string format
-    const menuItems = menuData.map(item => `${item.name}: ${item.description}`).join(', ');
+    // Use the items from the menu JSON directly
+    const menuItems = [
+      "Warm Goat Cheese Salad",
+      "Pissaladière Tart",
+      "Foie Gras Terrine",
+      "Bouillabaisse",
+      "Cassoulet",
+      "Filet Mignon",
+      "Duck Confit",
+      "Profiteroles",
+      "Strawberry Tart",
+      "Chocolate Mousse",
+      "Red Wine",
+      "Kir",
+      "Coffee"
+    ].join(', ');
 
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",

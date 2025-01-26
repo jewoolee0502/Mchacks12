@@ -131,7 +131,7 @@
         {
             "id": 6,
             "Original Title": "Filet mignon",
-            "Dish Title": "Filet Mignon",
+            "Dish Title": "Grilled Tenderloin Steak",
             "Price": 18,
             "Description": "Grilled pork fillet served with a pepper sauce and potatoes.",
             "Ingredients": [
@@ -181,7 +181,7 @@
         {
             "id": 8,
             "Original Title": "Profiteroles",
-            "Dish Title": "Profiteroles",
+            "Dish Title": "Cream Puffs",
             "Price": 7,
             "Description": "Choux filled with vanilla ice cream, drizzled with chocolate sauce.",
             "Ingredients": [
@@ -280,7 +280,7 @@
         {
             "id": 12,
             "Original Title": "Kir",
-            "Dish Title": "Kir",
+            "Dish Title": "Kir (blackcurrant liqueur mixed with white wine)",
             "Price": 6,
             "Description": "Aperitif made with cr\u00e8me de cassis and white wine.",
             "Ingredients": [

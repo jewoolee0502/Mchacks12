@@ -3,12 +3,9 @@ import openai
 import os
 from dotenv import load_dotenv
 
-
+# Set up the OpenAI API key
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-
-# Set up the OpenAI API key
 openai.api_key = OPENAI_API_KEY
 
 
@@ -17,15 +14,9 @@ def encode_image(image_path):
    with open(image_path, "rb") as image_file:
        return base64.b64encode(image_file.read()).decode("utf-8")
 
-
-def test_endpoint():
-   # Path to your image
-   image_path = 'image_menu.jpg'
-
-
+def gpt_json(image_path):
    # Getting the Base64 string
    base64_image = encode_image(image_path)
-
 
    #Prompt to extract information
    prompt = """{"
@@ -105,13 +96,11 @@ def test_endpoint():
 
 
 if __name__ == "__main__":
-   response = test_endpoint()
-
+   # Path to your image
+   image_path = 'image_menu.jpg'
+   response = gpt_json(image_path)
 
    # Print the response
    if response:
        print("Extracted Menu Items:")
        print(response)
-
-
-

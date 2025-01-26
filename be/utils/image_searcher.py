@@ -1,38 +1,50 @@
-import requests
+import base64
+import openai
 import os
 from dotenv import load_dotenv
 
-# Load pexels API key
+# Set up the OpenAI API key
 load_dotenv()
-PEXELS_API_KEY = os.getenv("PEXELS_API_KEY")
-API_KEY = PEXELS_API_KEY
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+openai.api_key = OPENAI_API_KEY
 
-def call_pexels_api(query):
-    url = f'https://api.pexels.com/v1/search?query={query}&per_page=5'
-    headers = {'Authorization': API_KEY}
-    response = requests.get(url, headers=headers)
+def gpt_json(image_path):
+       # Getting the Base64 string
+   base64_image = encode_image(image_path)
+
+   #Prompt to extract information
+   prompt = """{"
+         "You are a food and language expert. You are given a name of a menu or dish. You tasked with extracting 5 image urls of the menu."
+   }
+    """
+
+
+   response = openai.ChatCompletion.create(
+       model="gpt-4o-mini",
+       messages=[
+           {
+               "role": "user",
+               "content": [
+                   {
+                       "type": "text",
+                       "text": prompt,
+                   },
+                   {
+                       "type": "image_url",
+                       "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"},
+                   },
+               ],
+           }
+       ],
+   )
+
+
+   return response.choices[0]['message']['content']
+
+# Modify the query for better food-related searches
+def get_pexels_image(query):
     
-    if response.status_code == 200:
-        data = response.json()
-        image_urls = []
-        
-        # Add the image URLs to the list, or add the placeholder if not found
-        for i in range(5):
-            if i < len(data['photos']):
-                image_urls.append(data['photos'][i]['url'])
-            else:
-                image_urls.append("https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg")
-        
-        return image_urls
-    else:
-        return f"Error: {response.status_code}"
-
-# Modify the query below whereas needed
-def get_pexels_images(query):
-    modified_query = "food " + query
-    return call_pexels_api(modified_query)
-
 
 if __name__ == "__main__":
     # Example usage
-    print(get_pexels_images("Fries"))
+    print(get_google_images("Fries"))

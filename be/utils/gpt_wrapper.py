@@ -8,14 +8,13 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 openai.api_key = OPENAI_API_KEY
 
-
 # Function to encode the image
 def encode_image(image_path):
    with open(image_path, "rb") as image_file:
        return base64.b64encode(image_file.read()).decode("utf-8")
 
 def gpt_json(image_path):
-   # Getting the Base64 string
+       # Getting the Base64 string
    base64_image = encode_image(image_path)
 
    #Prompt to extract information
@@ -97,7 +96,7 @@ def gpt_json(image_path):
 
 if __name__ == "__main__":
    # Path to your image
-   image_path = 'image_menu.jpg'
+   image_path = 'Mchacks12/be/image_menu.jpeg'
    response = gpt_json(image_path)
 
    # Print the response

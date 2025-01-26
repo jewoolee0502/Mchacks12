@@ -67,7 +67,7 @@ const Bot = () => {
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",
       "messages": [
-        { role: "system", content: `You are a menu AI suggesting on user's preference, ask user about their allergies and dietary restrictions, and what do they normally want to eat, and based on that suggest a menu for them. And maybe suggest if a certain main dish goes well with a certain side dish and drink. Here is the menu: ${menuItems}` },
+        { role: "system", content: `You are a menu AI suggesting on user's preference, ask user about their allergies and dietary restrictions, and what do they normally want to eat, and based on that suggest a menu for them. And maybe suggest if a certain main dish goes well with a certain side dish and drink. Here is the menu: ${menuItems}, but only output shortly and simply.` },
         ...apiMessages,
       ],
     };

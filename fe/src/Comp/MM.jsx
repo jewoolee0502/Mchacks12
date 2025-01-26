@@ -99,8 +99,15 @@ const App = () => {
       }}
     >
       <div className="bg-white bg-opacity-90 shadow-lg">
-        <header className="bg-white bg-opacity-60 shadow p-4 items-center justify-between">
+        <header className="flex justify-between bg-white bg-opacity-60 shadow p-4 items-center">
           <h1 className="text-2xl px-2 font-bold text-yellow-500">Memenu Lens</h1>
+                  {/* Floating Bot Button */}
+        <button
+          className="bg-gray-300 text-black p-4 rounded-md shadow-lg hover:bg-gray-400"
+          onClick={toggleCart}
+        >
+          <CgShoppingCart />
+        </button>
         </header>
 
         {/* Menu Section */}
@@ -133,9 +140,9 @@ const App = () => {
               </span>
             </button>
             <button
-              onClick={() => handleCategoryClick("Main Dish")}
+              onClick={() => handleCategoryClick("Main Courses")}
               className={`flex justify-center p-4 w-full bg-white text-gray-700 hover:bg-gray-100 ${
-                selectedCategory === "Main Dish"
+                selectedCategory === "Main Courses"
                   ? "bg-gray-200 border-b-2 border-yellow-500"
                   : ""
               }`}
@@ -146,9 +153,9 @@ const App = () => {
               </span>
             </button>
             <button
-              onClick={() => handleCategoryClick("Drink")}
+              onClick={() => handleCategoryClick("Beverages")}
               className={`flex justify-center p-4 w-full bg-white text-gray-700 hover:bg-gray-100 ${
-                selectedCategory === "Drink"
+                selectedCategory === "Beverages"
                   ? "bg-gray-200 border-b-2 border-yellow-500"
                   : ""
               }`}
@@ -232,7 +239,7 @@ const App = () => {
           {/* Popup for Selected Item */}
           {selectedItem && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="bg-white p-6 rounded-lg shadow-lg relative">
+              <div className="bg-white p-6 rounded-lg shadow-lg relative ">
                 <button
                   className="absolute top-2 right-2 bg-white text-gray-700 rounded-full p-1 shadow-md hover:bg-gray-200"
                   onClick={handleClosePopup}
@@ -277,7 +284,7 @@ const App = () => {
 
         {/* Sliding Cart */}
         <div
-          className={`fixed top-0 right-0 h-full bg-white bg-opacity-40 shadow-lg transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full bg-white bg-opacity-80 shadow-lg transform transition-transform duration-300 ${
             isCartOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ width: "300px" }}
@@ -285,7 +292,7 @@ const App = () => {
           <div className="p-4">
             <h2 className="bg-white bg-opacity-60 border border-gray-200 text-center px-4 py-1 rounded-lg text-2xl font-bold mb-4">Cart</h2>
             <button
-              className="absolute top-2 right-2 bg-white text-gray-700 rounded-full p-1 shadow hover:bg-gray-200"
+              className="absolute top-2 px-2 right-2 bg-white text-gray-700 rounded-full p-1 shadow hover:bg-gray-200"
               onClick={toggleCart}
             >
               ✕
@@ -307,13 +314,7 @@ const App = () => {
           </div>
         </div>
         
-        {/* Floating Bot Button */}
-        <button
-          className="fixed bottom-4 right-16 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-400"
-          onClick={toggleCart}
-        >
-          <CgShoppingCart />
-        </button>
+
 
         {/* Floating Bot Button */}
         <button

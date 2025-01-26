@@ -5,9 +5,11 @@ import { LuSalad } from "react-icons/lu";
 import { PiBowlFoodBold, PiCoffeeBold, PiCakeBold } from "react-icons/pi";
 import { IoBookOutline } from "react-icons/io5";
 import { GrSort } from "react-icons/gr";
+import { CgShoppingCart } from "react-icons/cg";
+import { MdOutlineSupportAgent } from "react-icons/md";
 
 const App = () => {
-  const [menu, setMenu] = useState([]);
+  const [data, setData] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -17,11 +19,18 @@ const App = () => {
   const [sortOrder, setSortOrder] = useState("original");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const fetchMenuData = async () => {
+      try {
+          const response = await fetch("http://localhost:5000/menu");
+          const result = await response.json();
+          setData(result); // Set the entire data object
+      } catch (error) {
+          console.error("Error fetching menu:", error);
+      }
+  };
+
   useEffect(() => {
-    fetch("/data/menu.json")
-      .then((response) => response.json())
-      .then((data) => setMenu(data))
-      .catch((error) => console.error("Error fetching menu:", error));
+      fetchMenuData();
   }, []);
 
   const handleCategoryClick = (category) => {
@@ -61,21 +70,21 @@ const App = () => {
     setSearchQuery(e.target.value.toLowerCase());
   };
 
-  const filteredMenu = menuData.filter((item) => {
+  const filteredMenu = data.items?.filter((item) => {
     const matchesCategory =
       selectedCategory === "All" ||
-      item.type.toLowerCase() === selectedCategory.toLowerCase();
-    const matchesSearch = item.name.toLowerCase().includes(searchQuery);
+      item.Category.join(', ').toLowerCase().includes(selectedCategory.toLowerCase());
+    const matchesSearch = item["Dish Title"].toLowerCase().includes(searchQuery);
     return matchesCategory && matchesSearch;
   });
 
-  const sortedMenu = filteredMenu.sort((a, b) => {
+  const sortedMenu = filteredMenu?.sort((a, b) => {
     if (sortOrder === "priceLowToHigh") {
-      return a.price - b.price;
+      return a.Price - b.Price;
     } else if (sortOrder === "priceHighToLow") {
-      return b.price - a.price;
+      return b.Price - a.Price;
     } else {
-      return menuData.indexOf(a) - menuData.indexOf(b);
+      return data.items.indexOf(a) - data.items.indexOf(b);
     }
   });
 
@@ -90,16 +99,16 @@ const App = () => {
       }}
     >
       <div className="bg-white bg-opacity-90 shadow-lg">
-        <header className="bg-white shadow p-4 items-center justify-between">
-          <h1 className="text-2xl font-bold text-yellow-500">Memenu</h1>
+        <header className="bg-white bg-opacity-60 shadow p-4 items-center justify-between">
+          <h1 className="text-2xl px-2 font-bold text-yellow-500">Memenu Lens</h1>
         </header>
 
         {/* Menu Section */}
         <main className="p-6">
-          <div className="left-4 flex justify-center bg-white rounded-lg">
+          <div className="left-4 flex justify-center bg-white bg-opacity-60 rounded-lg">
             <button
               onClick={() => handleCategoryClick("All")}
-              className={`flex rounded-tl-lg justify-center p-4 w-full bg-white text-gray-700 hover:bg-gray-100 ${
+              className={`flex rounded-tl-lg justify-center p-4 w-full bg-white bg-opacity-60 text-gray-700 hover:bg-gray-100 ${
                 selectedCategory === "All"
                   ? "bg-gray-200 border-b-2 border-yellow-500"
                   : ""
@@ -165,7 +174,7 @@ const App = () => {
           </div>
 
           {/* Search and Sort */}
-          <div className="flex bg-white p-6 items-center gap-4">
+          <div className="flex bg-white bg-opacity-60 p-6 items-center gap-4">
             <input
               type="text"
               placeholder="Search for items..."
@@ -180,7 +189,7 @@ const App = () => {
                 onChange={handleSortChange}
                 className="ml-2 px-2 py-1 rounded-md border border-gray-300 focus:ring-yellow-500"
               >
-                <option value="original">Original Order</option>
+                <option value="original">Featured</option>
                 <option value="priceLowToHigh">Price: Low to High</option>
                 <option value="priceHighToLow">Price: High to Low</option>
               </select>
@@ -188,20 +197,34 @@ const App = () => {
           </div>
 
           {/* Display Menu Items */}
-          <div className="grid grid-cols-3 lg:grid-cols-5 gap-4 bg-white">
-            {sortedMenu.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow cursor-pointer hover:bg-gray-200"
-                onClick={() => handleItemClick(item)}
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-16 h-16 rounded-full mb-2"
-                />
-                <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p className="text-gray-600">${item.price.toFixed(2)}</p>
+          <div className="grid grid-cols-3 lg:grid-cols-5 gap-4 bg-white bg-opacity-60">
+            {sortedMenu?.map((item) => (
+              <div key={item.id} className="max-w-xs bg-white border border-gray-200 rounded-lg shadow-md cursor-pointer hover:bg-gray-200 relative" onClick={() => handleItemClick(item)}>
+                <div className="">
+                  <h2 className="text-lg px-2 mt-2 font-bold">{item["Dish Title"]}</h2>
+                  <h3 className="text-sm text-gray-500 px-2">{item["Original Title"]}</h3>
+                    <span className="font-semibold px-2">${item.Price}</span>
+                  <div className="mt-4 relative">
+                    <img
+                      src={"https://images.pexels.com/photos/5605620/pexels-photo-5605620.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+                      alt={item["Dish Title"]}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-white bg-opacity-90 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <h3 className="text-center text-black font-semibold">{item.Description}</h3>
+                    </div>
+                  </div>
+                  <div className="text-xl text-gray-500">
+                  </div>
+                  {/* <div className="mt-2 text-sm text-gray-500">
+                    <span>Ingredients</span>: <span className="font-semibold">{item.Ingredients.join(', ')}</span>
+                  </div>
+                  {item["Allergy tags"].length > 0 && (
+                    <div className="mt-2 text-sm text-gray-500">
+                      <span>Allergy Tags</span>: <span className="font-semibold">{item["Allergy tags"].join(', ')}</span>
+                    </div>
+                  )} */}
+                </div>
               </div>
             ))}
           </div>
@@ -216,14 +239,16 @@ const App = () => {
                 >
                   ✕
                 </button>
-                <h3 className="text-2xl font-bold mb-2">{selectedItem.name}</h3>
-                <p className="text-gray-500 mb-4">{selectedItem.description}</p>
+                <h3 className="text-2xl font-bold mb-2">{selectedItem["Dish Title"]}</h3>
                 <img
-                  src={selectedItem.image}
-                  alt={selectedItem.name}
+                  src={selectedItem.Image[0]}
+                  alt={selectedItem["Dish Title"]}
                   className="w-32 h-32 rounded-full mb-4"
                 />
-                <p className="text-lg font-semibold mb-4">${selectedItem.price.toFixed(2)}</p>
+                <p className="text-gray-500 mb-1">{selectedItem.Description}</p>
+                <p className="text-gray-500 mb-1">Major Ingredient in this dish: {selectedItem.Ingredients.join(', ')}</p>
+                <p className="text-gray-500 mb-4">Allergy to be aware of: {selectedItem["Allergy tags"].join(', ')}</p>
+                <p className="text-2xl font-semibold mb-4">${selectedItem.Price.toFixed(2)}</p>
                 <div className="flex items-center gap-4 mb-4">
                   <button
                     onClick={decrementQuantity}
@@ -252,13 +277,13 @@ const App = () => {
 
         {/* Sliding Cart */}
         <div
-          className={`fixed top-0 right-0 h-full bg-white shadow-lg transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full bg-white bg-opacity-40 shadow-lg transform transition-transform duration-300 ${
             isCartOpen ? "translate-x-0" : "translate-x-full"
           }`}
           style={{ width: "300px" }}
         >
           <div className="p-4">
-            <h2 className="text-2xl font-bold mb-4">Cart</h2>
+            <h2 className="bg-white bg-opacity-60 border border-gray-200 text-center px-4 py-1 rounded-lg text-2xl font-bold mb-4">Cart</h2>
             <button
               className="absolute top-2 right-2 bg-white text-gray-700 rounded-full p-1 shadow hover:bg-gray-200"
               onClick={toggleCart}
@@ -266,13 +291,15 @@ const App = () => {
               ✕
             </button>
             {cart.length === 0 ? (
-              <p className="text-gray-500">Your cart is empty.</p>
+              <div className="flex justify-center items-center h-full bg-white rounded-lg p-2 bg-opacity-80">
+                <p className="text-gray-500">Your cart is empty.</p>
+              </div>
             ) : (
               cart.map((item, index) => (
-                <div key={index} className="mb-4">
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
+                <div key={index} className="mb-4 bg-white bg-opacity-80 rounded-lg p-2">
+                  <h3 className="text-lg font-semibold bg">{item["Dish Title"]}</h3>
                   <p className="text-gray-500">
-                    ${item.price.toFixed(2)} x {item.quantity}
+                    ${item.Price.toFixed(2)} x {item.quantity}
                   </p>
                 </div>
               ))
@@ -282,22 +309,18 @@ const App = () => {
         
         {/* Floating Bot Button */}
         <button
-          className="fixed bottom-4 right-16 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600"
+          className="fixed bottom-4 right-16 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-400"
           onClick={toggleCart}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h18v2H3V3zm0 4h18v2H3V7zm0 4h18v2H3v-2zm0 4h18v2H3v-2zm0 4h18v2H3v-2z" />
-          </svg>
+          <CgShoppingCart />
         </button>
 
         {/* Floating Bot Button */}
         <button
-          className="fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600"
+          className="fixed bottom-4 right-4 bg-yellow-500 text-white p-4 rounded-full shadow-lg hover:bg-yellow-400"
           onClick={toggleBot}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm6 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2zm-6 4c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z" />
-          </svg>
+          <MdOutlineSupportAgent />
         </button>
 
         {/* Bot Popup */}

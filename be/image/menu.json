@@ -2,23 +2,23 @@
     "items": [
         {
             "id": 1,
-            "Original Title": "Salade de chèvre chaud",
+            "Original Title": "Salade de chÃ¨vre chaud",
             "Dish Title": "Warm Goat Cheese Salad",
             "Price": 11,
-            "Description": "Salad with warm goat cheese, walnuts, and balsamic vinaigrette.",
-            "Ingredients": ["goat cheese", "walnuts", "balsamic vinaigrette", "mixed greens"],
-            "Category": ["Starters"],
-            "Allergy tags": ["Nuts", "Dairy"],
+            "Description": "Warm goat cheese salad with nuts and balsamic vinaigrette.",
+            "Ingredients": ["goat cheese", "nuts", "balsamic vinaigrette"],
+            "Category": ["Appetizers"],
+            "Allergy tags": ["Nuts"],
             "Image": []
         },
         {
             "id": 2,
-            "Original Title": "Pissaladière",
-            "Dish Title": "Pissaladière Tart",
+            "Original Title": "PissaladiÃ¨re",
+            "Dish Title": "PissaladiÃ¨re Tart",
             "Price": 14,
             "Description": "Fine tart with onions, anchovies, and olives.",
-            "Ingredients": ["onions", "anchovies", "olives", "pastry crust"],
-            "Category": ["Starters"],
+            "Ingredients": ["onions", "anchovies", "olives"],
+            "Category": ["Appetizers"],
             "Allergy tags": ["Gluten", "Fish"],
             "Image": []
         },
@@ -27,10 +27,10 @@
             "Original Title": "Terrine de foie gras",
             "Dish Title": "Foie Gras Terrine",
             "Price": 8,
-            "Description": "Foie gras terrine served with grilled bread and onion confit.",
-            "Ingredients": ["foie gras", "grilled bread", "onion confit"],
-            "Category": ["Starters"],
-            "Allergy tags": ["Gluten", "Dairy"],
+            "Description": "Foie gras terrine served with toasted bread and onion confit.",
+            "Ingredients": ["foie gras", "toasted bread", "onion confit"],
+            "Category": ["Appetizers"],
+            "Allergy tags": [],
             "Image": []
         },
         {
@@ -38,10 +38,10 @@
             "Original Title": "Bouillabaisse",
             "Dish Title": "Bouillabaisse",
             "Price": 20,
-            "Description": "Provençal fish soup served with grilled bread and rouille.",
-            "Ingredients": ["fish", "shellfish", "vegetables", "saffron", "rouille"],
+            "Description": "ProvenÃ§al fish soup served with grilled bread and rouille.",
+            "Ingredients": ["fish", "grilled bread", "rouille"],
             "Category": ["Main Courses"],
-            "Allergy tags": ["Fish", "Shellfish"],
+            "Allergy tags": ["Fish", "Gluten"],
             "Image": []
         },
         {
@@ -49,10 +49,10 @@
             "Original Title": "Cassoulet",
             "Dish Title": "Cassoulet",
             "Price": 16,
-            "Description": "Southwest dish with beans, sausage, duck confit, and pork.",
-            "Ingredients": ["beans", "sausage", "duck confit", "pork"],
+            "Description": "Southwestern dish made with beans, sausage, duck, and pork.",
+            "Ingredients": ["beans", "sausage", "duck", "pork"],
             "Category": ["Main Courses"],
-            "Allergy tags": ["None"],
+            "Allergy tags": ["Gluten"],
             "Image": []
         },
         {
@@ -61,9 +61,9 @@
             "Dish Title": "Filet Mignon",
             "Price": 18,
             "Description": "Grilled pork fillet served with a pepper sauce and potatoes.",
-            "Ingredients": ["pork", "pepper sauce", "potatoes"],
+            "Ingredients": ["pork fillet", "pepper sauce", "potatoes"],
             "Category": ["Main Courses"],
-            "Allergy tags": ["None"],
+            "Allergy tags": [],
             "Image": []
         },
         {
@@ -71,10 +71,10 @@
             "Original Title": "Confit de canard",
             "Dish Title": "Duck Confit",
             "Price": 16,
-            "Description": "Duck legs served with sautéed potatoes and mixed salad.",
-            "Ingredients": ["duck legs", "potatoes", "mixed salad"],
+            "Description": "Confit duck legs served with sautÃ©ed potatoes and green salad.",
+            "Ingredients": ["duck legs", "potatoes", "green salad"],
             "Category": ["Main Courses"],
-            "Allergy tags": ["None"],
+            "Allergy tags": [],
             "Image": []
         },
         {
@@ -82,8 +82,8 @@
             "Original Title": "Profiteroles",
             "Dish Title": "Profiteroles",
             "Price": 7,
-            "Description": "Choux pastry filled with vanilla ice cream and covered with hot chocolate sauce.",
-            "Ingredients": ["choux pastry", "vanilla ice cream", "chocolate sauce"],
+            "Description": "Puffs filled with vanilla ice cream, drizzled with chocolate sauce.",
+            "Ingredients": ["puff pastry", "vanilla ice cream", "chocolate sauce"],
             "Category": ["Desserts"],
             "Allergy tags": ["Gluten", "Dairy"],
             "Image": []
@@ -115,10 +115,10 @@
             "Original Title": "Vin rouge",
             "Dish Title": "Red Wine",
             "Price": 5,
-            "Description": "Selection of French wines from different regions.",
-            "Ingredients": ["red wine"],
-            "Category": ["Beverages"],
-            "Allergy tags": ["None"],
+            "Description": "Selection of wines from different French regions.",
+            "Ingredients": [],
+            "Category": ["Drinks"],
+            "Allergy tags": [],
             "Image": []
         },
         {
@@ -126,21 +126,21 @@
             "Original Title": "Kir",
             "Dish Title": "Kir",
             "Price": 6,
-            "Description": "Aperitif made with crème de cassis and white wine.",
-            "Ingredients": ["crème de cassis", "white wine"],
-            "Category": ["Beverages"],
-            "Allergy tags": ["None"],
+            "Description": "Aperitif made with crÃ¨me de cassis and white wine.",
+            "Ingredients": ["crÃ¨me de cassis", "white wine"],
+            "Category": ["Drinks"],
+            "Allergy tags": [],
             "Image": []
         },
         {
             "id": 13,
-            "Original Title": "Café",
+            "Original Title": "CafÃ©",
             "Dish Title": "Coffee",
             "Price": 2,
-            "Description": "Espresso or lungo coffee.",
-            "Ingredients": ["coffee"],
-            "Category": ["Beverages"],
-            "Allergy tags": ["None"],
+            "Description": "Espresso or long coffee.",
+            "Ingredients": [],
+            "Category": ["Drinks"],
+            "Allergy tags": [],
             "Image": []
         }
     ]

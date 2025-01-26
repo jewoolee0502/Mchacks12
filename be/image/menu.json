@@ -1,0 +1,147 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "Original Title": "Salade de chèvre chaud",
+            "Dish Title": "Warm Goat Cheese Salad",
+            "Price": 11,
+            "Description": "Salad with warm goat cheese, walnuts, and balsamic vinaigrette.",
+            "Ingredients": ["goat cheese", "walnuts", "balsamic vinaigrette", "mixed greens"],
+            "Category": ["Starters"],
+            "Allergy tags": ["Nuts", "Dairy"],
+            "Image": []
+        },
+        {
+            "id": 2,
+            "Original Title": "Pissaladière",
+            "Dish Title": "Pissaladière Tart",
+            "Price": 14,
+            "Description": "Fine tart with onions, anchovies, and olives.",
+            "Ingredients": ["onions", "anchovies", "olives", "pastry crust"],
+            "Category": ["Starters"],
+            "Allergy tags": ["Gluten", "Fish"],
+            "Image": []
+        },
+        {
+            "id": 3,
+            "Original Title": "Terrine de foie gras",
+            "Dish Title": "Foie Gras Terrine",
+            "Price": 8,
+            "Description": "Foie gras terrine served with grilled bread and onion confit.",
+            "Ingredients": ["foie gras", "grilled bread", "onion confit"],
+            "Category": ["Starters"],
+            "Allergy tags": ["Gluten", "Dairy"],
+            "Image": []
+        },
+        {
+            "id": 4,
+            "Original Title": "Bouillabaisse",
+            "Dish Title": "Bouillabaisse",
+            "Price": 20,
+            "Description": "Provençal fish soup served with grilled bread and rouille.",
+            "Ingredients": ["fish", "shellfish", "vegetables", "saffron", "rouille"],
+            "Category": ["Main Courses"],
+            "Allergy tags": ["Fish", "Shellfish"],
+            "Image": []
+        },
+        {
+            "id": 5,
+            "Original Title": "Cassoulet",
+            "Dish Title": "Cassoulet",
+            "Price": 16,
+            "Description": "Southwest dish with beans, sausage, duck confit, and pork.",
+            "Ingredients": ["beans", "sausage", "duck confit", "pork"],
+            "Category": ["Main Courses"],
+            "Allergy tags": ["None"],
+            "Image": []
+        },
+        {
+            "id": 6,
+            "Original Title": "Filet mignon",
+            "Dish Title": "Filet Mignon",
+            "Price": 18,
+            "Description": "Grilled pork fillet served with a pepper sauce and potatoes.",
+            "Ingredients": ["pork", "pepper sauce", "potatoes"],
+            "Category": ["Main Courses"],
+            "Allergy tags": ["None"],
+            "Image": []
+        },
+        {
+            "id": 7,
+            "Original Title": "Confit de canard",
+            "Dish Title": "Duck Confit",
+            "Price": 16,
+            "Description": "Duck legs served with sautéed potatoes and mixed salad.",
+            "Ingredients": ["duck legs", "potatoes", "mixed salad"],
+            "Category": ["Main Courses"],
+            "Allergy tags": ["None"],
+            "Image": []
+        },
+        {
+            "id": 8,
+            "Original Title": "Profiteroles",
+            "Dish Title": "Profiteroles",
+            "Price": 7,
+            "Description": "Choux pastry filled with vanilla ice cream and covered with hot chocolate sauce.",
+            "Ingredients": ["choux pastry", "vanilla ice cream", "chocolate sauce"],
+            "Category": ["Desserts"],
+            "Allergy tags": ["Gluten", "Dairy"],
+            "Image": []
+        },
+        {
+            "id": 9,
+            "Original Title": "Tarte aux fraises",
+            "Dish Title": "Strawberry Tart",
+            "Price": 6,
+            "Description": "Sweet tart with strawberries and pastry cream.",
+            "Ingredients": ["strawberries", "pastry cream", "tart crust"],
+            "Category": ["Desserts"],
+            "Allergy tags": ["Gluten", "Dairy"],
+            "Image": []
+        },
+        {
+            "id": 10,
+            "Original Title": "Mousse au chocolat",
+            "Dish Title": "Chocolate Mousse",
+            "Price": 6,
+            "Description": "Light dessert made with dark chocolate and whipped cream.",
+            "Ingredients": ["dark chocolate", "whipped cream"],
+            "Category": ["Desserts"],
+            "Allergy tags": ["Dairy"],
+            "Image": []
+        },
+        {
+            "id": 11,
+            "Original Title": "Vin rouge",
+            "Dish Title": "Red Wine",
+            "Price": 5,
+            "Description": "Selection of French wines from different regions.",
+            "Ingredients": ["red wine"],
+            "Category": ["Beverages"],
+            "Allergy tags": ["None"],
+            "Image": []
+        },
+        {
+            "id": 12,
+            "Original Title": "Kir",
+            "Dish Title": "Kir",
+            "Price": 6,
+            "Description": "Aperitif made with crème de cassis and white wine.",
+            "Ingredients": ["crème de cassis", "white wine"],
+            "Category": ["Beverages"],
+            "Allergy tags": ["None"],
+            "Image": []
+        },
+        {
+            "id": 13,
+            "Original Title": "Café",
+            "Dish Title": "Coffee",
+            "Price": 2,
+            "Description": "Espresso or lungo coffee.",
+            "Ingredients": ["coffee"],
+            "Category": ["Beverages"],
+            "Allergy tags": ["None"],
+            "Image": []
+        }
+    ]
+}

@@ -30,4 +30,5 @@ This project aims to improve accessibility and inclusivity in the dining experie
    ```bash
    OPENAI_API_KEY=the-key
    PEXELS_API_KEY=the-key
-   CURRENCY_FREAKS_API_KEY=the-key```
+   CURRENCY_FREAKS_API_KEY=the-key
+   ```

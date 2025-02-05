@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Mosaic } from "react-loading-indicators";
 import Font, { Text } from 'react-font';
 import OpenAI from "openai";
-
+import key from "./key.json";
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -19,7 +19,7 @@ const App = () => {
 
   const handleTranslateClick = async () => {
     if (!selectedFile) {
-      alert("请先选择文件");
+      alert("Please select a file");
       return;
     }
 
@@ -84,7 +84,7 @@ const App = () => {
 
       // Set up OpenAI API configuration
       const openai = new OpenAI({
-        apiKey: "//",
+        apiKey: key.OPENAI_API_KEY,
         dangerouslyAllowBrowser: true,
       });
 

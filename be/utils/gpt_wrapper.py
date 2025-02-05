@@ -13,11 +13,8 @@ def encode_image(image_path):
    with open(image_path, "rb") as image_file:
        return base64.b64encode(image_file.read()).decode("utf-8")
 
-def gpt_json(image_path):
-       # Getting the Base64 string
-   base64_image = encode_image(image_path)
-
-   #Prompt to extract information
+def gpt_json(base64_image):
+   # Prompt to extract information
    prompt = """{"
        "You are a food and language expert. You are given an image of a menu. You are tasked with extracting all menu items and their details from this image. "
        "Every menu item will have the following fields, either in the image or you need to come up with them: with two excluseive fields: Name and Price (they have to be strictly extracted from the image)"
@@ -70,7 +67,6 @@ def gpt_json(image_path):
        "}"
    }"""
 
-
    response = openai.ChatCompletion.create(
        model="gpt-4o-mini",
        messages=[
@@ -90,14 +86,14 @@ def gpt_json(image_path):
        ],
    )
 
-
    return response.choices[0]['message']['content']
 
 
 if __name__ == "__main__":
    # Path to your image
    image_path = 'Mchacks12/be/image_menu.jpeg'
-   response = gpt_json(image_path)
+   base64_image = encode_image(image_path)
+   response = gpt_json(base64_image)
 
    # Print the response
    if response:

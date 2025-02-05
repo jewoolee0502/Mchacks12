@@ -264,11 +264,33 @@ const App = () => {
                   ✕
                 </button>
                 <h3 className="text-2xl font-bold mb-2">{selectedItem["Dish Title"]}</h3>
+                <div className="flex flex-col justify-center items-center">
+                  <div className="flex justify-center items-center">
                 <img
                   src={selectedItem.Image[0]}
                   alt={selectedItem["Dish Title"]}
-                  className="w-32 h-32 rounded-full mb-4"
+                  className="w-48 h-48 mb-4"
                 />
+                                <img
+                  src={selectedItem.Image[1]}
+                  alt={selectedItem["Dish Title"]}
+                  className="w-48 h-48 mb-4"
+                />
+                  </div>
+                <div className="flex justify-center items-center">
+                                <img
+                  src={selectedItem.Image[2]}
+                  alt={selectedItem["Dish Title"]}
+                  className="w-48 h-48 mb-4"
+                />
+                                <img
+                  src={selectedItem.Image[3]}
+                  alt={selectedItem["Dish Title"]}
+                  className="w-48 h-48 mb-4"
+                />
+                </div>
+
+                </div>
                 <p className="text-gray-500 mb-1">{selectedItem.Description}</p>
                 <p className="text-gray-500 mb-1">Major Ingredient in this dish: {selectedItem.Ingredients.join(', ')}</p>
                 <p className="text-gray-500 mb-4">Allergy to be aware of: {selectedItem["Allergy tags"].join(', ')}</p>

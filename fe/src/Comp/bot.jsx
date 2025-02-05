@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import key from "./key.json";
 // Removed menuData import
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
@@ -12,7 +13,7 @@ import {
 } from '@chatscope/chat-ui-kit-react';
 
 // Use a hardcoded API key for demonstration purposes
-const API_KEY = "Hello World";
+const API_KEY = key.OPENAI_API_KEY;
 
 const Bot = () => {
   const [messages, setMessages] = useState([

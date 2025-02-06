@@ -3,6 +3,9 @@ import { Mosaic } from "react-loading-indicators";
 import Font, { Text } from 'react-font';
 import OpenAI from "openai";
 import key from "./key.json";
+import Aurora from './Aurora';
+import { FileUpload } from './input';
+
 const App = () => {
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -132,24 +135,43 @@ const App = () => {
     });
   };
 
+  const handleClosePreview = () => {
+    setPreview(null);
+    setSelectedFile(null);
+  };
+
   return (
-    <div className="min-h-screen bg-opacity-80" style={{ background: "linear-gradient(to bottom, #A3A4BC, #7990A9, #DABBAE, #A3B7C3)" }}>
+    <div className="min-h-screen bg-opacity-80 px-10">
+    <div className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
+      <Aurora colorStops={["#f0b0ca", "#a89cdd", "#92a5f0"]} speed={0.5}/>
+    </div>
       <div className="flex justify-center items-center h-screen">
-        <div className="bg-white bg-opacity-30 p-20 rounded-3xl shadow-lg text-center">
-          <Text family='Monoton' style={{ fontSize: 95, margin: 0 }} onLoad={() => console.log('loaded Monoton')}>
+        <div className="bg-transparent text-center">
+          <Text family='Monoton' style={{ fontSize: 80, margin: 0, color: '#d8d2f0' }} onLoad={() => console.log('loaded Monoton')}>
             Menu Lens :)
           </Text>
-          <div className="flex justify-center p-8 rounded-lg">
+          <div className="flex flex-col justify-center rounded-lg mx-4 rounded-xl">
             {loading ? (
-              <Mosaic color={["#A3A4BC", "#7990A9", "#DABBAE", "#A3B7C3"]} size="medium" text="" textColor="" />
+              <div className="flex justify-center items-center">
+                <Mosaic color={["#A3A4BC", "#7990A9", "#DABBAE", "#A3B7C3"]} size="medium" text="" textColor="" />
+              </div>
             ) : (
               <>
-                <div className="p-4">
-                  <input type="file" accept="image/*" onChange={handleFileChange} />
-                  {preview && <img src={preview} alt="预览" className="mt-2 w-40 h-40" />}
-                </div>
+                {!preview && <FileUpload onFileChange={handleFileChange} />}
+                {preview && (
+                  <div className="relative border-2 mx-auto pt-10 p-2 border-white border-opacity-5 bg-white bg-opacity-10 rounded-xl">
+                    <img src={preview} alt="预览" className="w-64 h-64 mx-auto" />
+                    <button
+                      type="button"
+                      onClick={handleClosePreview}
+                      className="absolute top-0 right-0 mt-1 mr-1 bg-white bg-opacity-10 text-white rounded-xl px-2 py-1"
+                    >
+                      ↻ Back
+                    </button>
+                  </div>
+                )}
                 <div className="flex justify-center">
-                  <button type="button" onClick={handleTranslateClick} className="mt-4 border-2 border-gray-300 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">
+                  <button type="button" onClick={handleTranslateClick} className="mt-4 border-2 border-white border-opacity-5 bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-2 px-4 rounded-2xl transition-all duration-300">
                     Translate
                   </button>
                 </div>

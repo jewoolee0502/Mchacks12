@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Mosaic } from "react-loading-indicators";
 import Font, { Text } from 'react-font';
-import OpenAI from "openai";
 import key from "./key.json";
 import Aurora from './Aurora';
 import { FileUpload } from './input';
 
-const App = () => {
+const Menu = () => {
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [menuData, setMenuData] = useState(null);
-
+  const navigate = useNavigate();
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -28,11 +28,9 @@ const App = () => {
 
     setLoading(true);
     try {
-      // Convert the image file to base64
       const base64Image = await convertFileToBase64(selectedFile);
 
-      // Define the prompt
-      const prompt = `{"
+      const prompt = `{
        "You are a food and language expert. You are given an image of a menu. You are tasked with extracting all menu items and their details from this image. "
        "Every menu item will have the following fields, either in the image or you need to come up with them: with two excluseive fields: Name and Price (they have to be strictly extracted from the image)"
       
@@ -43,14 +41,13 @@ const App = () => {
        "Do not skip any menu item under any condition."
        "If you need do not have enough information about a specific item from the menu, try predicting the information about the menu."
 
-
        "Warnings: if the image is not clear, and that is not possible to extract more than two Original Dish Title and Price, you need to return a warning message saying that the image is not clear and please provide a better image. "
       
        "your output should be an array of the menu items with the fields from the above. "
        "the following fields needs to be in english. if not already in english, translate them to english. : Dish Title, Description, Ingredients"
        "Return the results in a structured JSON format"
        "Exclude any unnecessary text or decorations."
-       "here are two examples of the output: "
+       "here is the example of the output: "
        "{"
        "    \"items\": ["
        "        {"
@@ -65,8 +62,8 @@ const App = () => {
        "            \"Image\": []"
        "        }"
        "    ]"
-       "}
-      
+       "},"
+
        "{"
        "    \"items\": ["
        "        {"
@@ -81,54 +78,101 @@ const App = () => {
        "            \"Image\": []"
        "        }"
        "    ]"
-       "}
-       `
+       "},"
+       "..."
+      }`;
 
+      let data;
+      while (true) {
+        try {
+          const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${key.OPENROUTER_API_KEY}`,
+              "HTTP-Referer": "https://menu-lens.vercel.app/",
+              "X-Title": "Menu Lens",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": [
+                    { "type": "text", "text": `${prompt}` },
+                    { 
+                      "type": "image_url",
+                      "image_url": { "url": `data:image/jpeg;base64,${base64Image}` }
+                    }
+                  ]
+                }
+              ],
+              "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                  "name": "menu",
+                  "strict": true,
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {"type": "number"},
+                            "Original Title": {"type": "string"},
+                            "Title": {"type": "string"},
+                            "Price": {"type": "number"},
+                            "Description": {"type": "string"},
+                            "Ingredients": {"type": "array", "items": {"type": "string"}},
+                            "Category": {"type": "array", "items": {"type": "string"}},
+                            "Allergy tags": {"type": "array", "items": {"type": "string"}},
+                            "Image": {"type": "array", "items": {"type": "string"}}
+                          },
+                          "required": ["Original Title", "Price", "Description", "Ingredients", "Title", "Category", "Allergy tags", "Image"]
+                        },
+                        "description": "Array of menu items"
+                      }
+                    },
+                    "required": ["items"],
+                    "additionalProperties": false
+                  }
+                }
+              }
+            })
+          });
 
-      // Set up OpenAI API configuration
-      const openai = new OpenAI({
-        apiKey: key.OPENAI_API_KEY,
-        dangerouslyAllowBrowser: true,
-      });
+          data = await response.json();
+          if (data.choices?.[0]?.message?.content) break;
+        } catch (error) {
+          console.error("Error processing image, retrying...", error);
+          await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+      }
 
-      // Call the OpenAI API with the public image URL
-      const apiResponse = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "user",
-            content: prompt,
-          },
-          {
-            role: "user",
-            content: `data:image/jpeg;base64,${base64Image}`,
-          },
-        ],
-        max_tokens: 3000,
-      });
-
-      // Use the response directly from the OpenAI API call
-      const data = apiResponse;
-      console.log(data);
       setMenuData(data.choices[0].message.content);
       console.log(menuData);
+      
     } catch (error) {
       console.error("Error processing image:", error);
       alert("处理失败");
     } finally {
       setLoading(false);
+      // console.log(menuData);
+      if (menuData !== null) {
+        
+        navigate('/MM', { state: { menuData: menuData } });
+      }
     }
   };
 
-  // Helper function to convert file to base64
   const convertFileToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
         const base64String = reader.result.split(',')[1];
-        console.log("Base64 String Length:", base64String.length);
-        console.log("Base64 String Preview:", base64String.slice(0, 100));
         resolve(base64String);
       };
       reader.onerror = (error) => reject(error);
@@ -142,12 +186,12 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-opacity-80 px-10">
-    <div className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
-      <Aurora colorStops={["#f0b0ca", "#a89cdd", "#92a5f0"]} speed={0.5}/>
-    </div>
+      <div className="absolute top-0 left-0 w-full h-full" style={{ zIndex: -1 }}>
+        <Aurora colorStops={["#f0b0ca", "#a89cdd", "#92a5f0"]} speed={0.5}/>
+      </div>
       <div className="flex justify-center items-center h-screen">
         <div className="bg-transparent text-center">
-          <Text family='Monoton' style={{ fontSize: 80, margin: 0, color: '#d8d2f0' }} onLoad={() => console.log('loaded Monoton')}>
+          <Text family='Monoton' style={{ fontSize: 80, margin: 0, color: '#d8d2f0' }}>
             Menu Lens :)
           </Text>
           <div className="flex flex-col justify-center rounded-lg mx-4 rounded-xl">
@@ -174,10 +218,10 @@ const App = () => {
                   <button type="button" onClick={handleTranslateClick} className="mt-4 border-2 border-white border-opacity-5 bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-2 px-4 rounded-2xl transition-all duration-300">
                     Translate
                   </button>
+                  {/* <button type="button" onClick={() => navigate("/MM", { state: { menuData: menuData } })} className="mt-4 border-2 border-white border-opacity-5 bg-white bg-opacity-10 hover:bg-opacity-20 text-white font-bold py-2 px-4 rounded-2xl transition-all duration-300">
+                    Save
+                  </button> */}
                 </div>
-                {/* {menuData && (
-                  <pre className="mt-2 p-4 bg-gray-100">{JSON.stringify(menuData, null, 2)}</pre>
-                )} */}
               </>
             )}
           </div>
@@ -187,4 +231,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Menu;

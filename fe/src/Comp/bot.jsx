@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import key from "./key.json";
-// Removed menuData import
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {

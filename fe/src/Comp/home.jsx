@@ -6,7 +6,7 @@ import Aurora from './Aurora';
 import { FileUpload } from './input';
 
 const Menu = () => {
-  const key = "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"
+  const key = "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"
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);

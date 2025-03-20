@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Mosaic } from "react-loading-indicators";
 import Font, { Text } from 'react-font';
-import key from "./key.json";
 import Aurora from './Aurora';
 import { FileUpload } from './input';
 
 const Menu = () => {
+  const key = "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"
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -88,7 +88,7 @@ const Menu = () => {
           const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-              "Authorization": `Bearer ${key.OPENROUTER_API_KEY}`,
+              "Authorization": `Bearer ${key}`,
               "HTTP-Referer": "https://menu-lens.vercel.app/",
               "X-Title": "Menu Lens",
               "Content-Type": "application/json"
